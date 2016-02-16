@@ -1,0 +1,59 @@
+.home {
+  display: grid;
+  grid-template-columns: 5fr 1fr 5fr;
+  grid-template-rows: 5fr 1fr 5fr;
+  grid-template-areas:
+    'user   . room'
+    '.      . .'
+    'random . settings';
+
+  @nest & > a {
+    border-radius: 2%;
+    box-shadow: 1px 1px 5px 0 #000a;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-in-out;
+    transition-property: transform, box-shadow;
+    will-change: transform, box-shadow;
+
+    &:hover, &:focus {
+      transform: scale(1.01);
+      box-shadow: 2px 2px 5px 2px #0007;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .home {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 5fr 1fr) 5fr;
+    grid-template-areas:
+      'room'
+      '.'
+      'random'
+      '.'
+      'user'
+      '.'
+      'settings';
+  }
+}
+
+.user {
+  grid-area: user;
+}
+
+.room {
+  grid-area: room;
+}
+
+.random {
+  grid-area: random;
+}
+
+.settings {
+  grid-area: settings;
+}

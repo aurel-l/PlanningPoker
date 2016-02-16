@@ -1,0 +1,6 @@
+.cardInner {
+  width: 100%;
+  height: calc(16 * 9)%;
+  border: thin solid black;
+  border-radius: 2%;
+}

@@ -1,0 +1,29 @@
+.header {
+  padding: 0 0.5em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    'title room'
+    'title user';
+  justify-items: end;
+  align-items: center;
+
+  @nest & > a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.title {
+  grid-area: title;
+  justify-self: start;
+}
+
+.room {
+  grid-area: room;
+}
+
+.user {
+  grid-area: user;
+}

@@ -1,0 +1,47 @@
+{
+  "name": "planning-poker-http-server",
+  "version": "0.0.5",
+  "scripts": {
+    "lint": "eslint --ignore-path ../.gitignore '**/*.js'",
+    "test": "echo \"Warning: no test specified, passing\" && exit 0",
+    "bundle": "webpack --progress",
+    "cleanup": "rimraf dist && mkdirp dist",
+    "predeploy": "npm-run-all lint test cleanup",
+    "deploy": "NODE_ENV=production npm-run-all -p deploy:*",
+    "deploy:static": "cpx \"src/**/*.html\" dist",
+    "deploy:webpack": "npm run bundle",
+    "postdeploy": "npm run test",
+    "prestart": "npm run cleanup",
+    "start": "npm-run-all -p start:*",
+    "start:static": "npm run deploy:static -- --watch",
+    "start:webpack": "webpack-dev-server --content-base dist --inline --hot -d"
+  },
+  "author": "Aurélien Luciani",
+  "dependencies": {
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-motion": "^0.4.2",
+    "react-router": "^2.0.0",
+    "socket.io-client": "^1.4.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.5.2",
+    "babel-eslint": "^4.1.8",
+    "babel-loader": "^6.2.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.5.2",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "cpx": "^1.2.1",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.1.0",
+    "eslint-config-airbnb": "^5.0.1",
+    "eslint-plugin-react": "^3.16.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "npm-run-all": "^1.5.1",
+    "postcss-cssnext": "^2.4.0",
+    "postcss-loader": "^0.8.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^2.0.7-beta",
+    "webpack-dev-server": "^2.0.0-beta"
+  }
+}
