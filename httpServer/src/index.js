@@ -16,7 +16,7 @@ import Room from './pages/Room';
 
 import ready from './utils/ready';
 
-async function main() {
+(async () => {
   await ready;
   render(
     <Router history={history}>
@@ -30,6 +30,4 @@ async function main() {
     </Router>,
     document.getElementById('root')
   );
-}
-
-main();
+})();

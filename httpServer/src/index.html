@@ -7,6 +7,25 @@
     <title>Poker Planning</title>
   </head>
   <body>
-    <div id="root">Root</div>
+    <div id="root">
+      <style>
+        #loading_container {
+          height: 100vw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        @keyframes loop {
+          from {transform: scale(0);}
+          to {transform: scale(2);}
+        }
+        #loading {
+          animation: 1s ease-in-out 0s infinite alternate loop;
+        }
+      </style>
+      <div id="loading_container">
+        <p id="loading">Loading</p>
+      </div>
+    </div>
   </body>
 </html>
