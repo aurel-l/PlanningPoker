@@ -1,6 +1,6 @@
 import React, {Component, PropTypes as T} from 'react';
 
-import {enterRoom} from '../actions';
+import {enterRoom} from '../actions/creators';
 
 import s from './Room.css';
 

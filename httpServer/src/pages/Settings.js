@@ -1,6 +1,6 @@
 import React, {Component, PropTypes as T} from 'react';
 
-import {updateSocketConnectionUrl} from '../actions';
+import {updateSocketConnectionUrl} from '../actions/creators';
 
 import s from './Settings.css';
 

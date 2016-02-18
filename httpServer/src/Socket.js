@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import {
   socketConnectionStart, socketConnectionSuccess,
   socketConnectionFail, socketConnectionMessage,
-} from './actions';
+} from './actions/creators';
 
 export default class Socket extends Component {
   static propTypes = {

@@ -1,6 +1,6 @@
 import React, {Component, PropTypes as T} from 'react';
 
-import {updateUsername} from '../actions';
+import {updateUsername} from '../actions/creators';
 
 import s from './User.css';
 

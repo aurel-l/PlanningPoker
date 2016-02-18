@@ -40,7 +40,7 @@ p {
 
     @nest & > * {
       flex-grow: 1;
-      border-radius: 2%;
+      border-radius: 1vw;
 
       &:not([data-page='home']) {
         box-shadow: 1px 1px 5px 0 #000a;

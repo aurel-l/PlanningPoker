@@ -1,12 +1,16 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": [
+    "airbnb"
+  ],
+  "plugins": ["import"],
   "env": {
     "browser": true,
     "es6": true
   },
   "globals": {
-    "ENV": false,
+    "DEV": false,
+    "PROD": false,
     "NAME": false,
     "VERSION": false
   },

@@ -5,7 +5,7 @@ import {
   hashHistory, browserHistory,
 } from 'react-router';
 
-const history = (ENV === 'production') ? browserHistory : hashHistory;
+const history = DEV ? hashHistory : browserHistory;
 
 import App from './App';
 import Home from './pages/Home';

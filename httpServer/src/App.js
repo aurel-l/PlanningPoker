@@ -6,7 +6,7 @@ import Socket from './Socket';
 
 import s from './App.css';
 
-import rootReducer from './reducers';
+import rootReducer from './reducers/root';
 
 export default class App extends Component {
   static propTypes = {

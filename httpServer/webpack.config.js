@@ -18,6 +18,8 @@ const cssSettings = {
   localIdentName: '[name]__[local]___[hash:base64:5]',
 };
 
+const production = process.env.NODE_ENV === 'production';
+
 module.exports = {
   entry: {
     js: pathBuilder(['src', 'index.js']),
@@ -29,7 +31,8 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('styles.css'),
     new webpack.DefinePlugin({
-      ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
+      DEV: JSON.stringify(!production),
+      PROD: JSON.stringify(production),
       NAME: JSON.stringify(pkg.name),
       VERSION: JSON.stringify(pkg.version),
     }),
