@@ -16,11 +16,11 @@ RoomInfo.propTypes = {
 
 const Header = ({username, room}) => (
   <header className={s.header}>
-    <Link to='/' className={s.title}>
+    <Link to="/" className={s.title}>
       <p>Planning poker</p>
     </Link>
     <RoomInfo room={room} />
-    <Link to='/user' className={s.user}>
+    <Link to="/user" className={s.user}>
       <p>User: {username}</p>
     </Link>
   </header>

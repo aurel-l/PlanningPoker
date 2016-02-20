@@ -5,14 +5,16 @@ import randomId from '../utils/randomId';
 
 import s from './RoomSelector.css';
 
+const generateRandomRoom = () => ({id: randomId()});
+
 export default class RoomSelector extends Component {
   constructor() {
     super();
     this.state = {id: null};
   }
 
-  generateRandomRoom = () => {
-    this.setState({id: randomId()});
+  handleClick = () => {
+    this.setState(generateRandomRoom());
   }
 
   handleChange = ({target: {value}}) => {
@@ -30,7 +32,7 @@ export default class RoomSelector extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <button onClick={this.generateRandomRoom}>Create a random room</button>
+        <button onClick={this.handleClick}>Create a random room</button>
         {id ? <Link to={`/room/${id}`}>Go to room {id}</Link> : null}
       </form>
     );

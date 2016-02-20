@@ -1,5 +1,8 @@
+/* @flow */
 import localStorageManager from './localStorageManager';
 import randomId from './randomId';
+
+const smallIDSize = 3;
 
 const defaultGetter = (key, def) => {
   const cached = localStorage.getItem(key);
@@ -8,12 +11,14 @@ const defaultGetter = (key, def) => {
   return def;
 };
 
-export const defaultSocket = () => (
+export const defaultSocket = ()/*: string*/ => (
   defaultGetter('socketUrl', `ws://${location.hostname}:3000`)
 );
 
-export const defaultUsername = () => (
-  defaultGetter('username', `Anonymous_${randomId(3)}`)
+export const defaultUsername = ()/*: string*/ => (
+  defaultGetter('username', `Anonymous_${randomId(smallIDSize)}`)
 );
 
-export const defaultUserId = () => defaultGetter('userId', randomId(3));
+export const defaultUserId = ()/*: string*/ => (
+  defaultGetter('userId', randomId(smallIDSize))
+);

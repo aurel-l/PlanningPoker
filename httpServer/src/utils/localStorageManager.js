@@ -1,8 +1,11 @@
+/* @flow */
 const queue = new window.Map();
+
+const fallbackTimeoutLength = 1;
 
 const rIC = window.requestIdleCallback ?
   window.requestIdleCallback :
-  (cb) => setTimeout(cb, 1);
+  (cb) => setTimeout(cb, fallbackTimeoutLength);
 
 const dequeue = () => {
   for (const [key, value] of queue) {
@@ -11,7 +14,7 @@ const dequeue = () => {
 };
 
 export default {
-  enqueue(key, value) {
+  enqueue(key/*: string*/, value/*: string*/) {
     // If the queue is empty
     if (queue.size) {
       // Ask the dequeuer to start whenever it can because we're about to...

@@ -1,2 +1,10 @@
-export default (length = 0) => Math.random().toString(16)
-  .slice(2).slice(-length).toUpperCase();
+/* @flow */
+const HEX = 16;
+// Length to remove at the beginning
+const SLICED = 2;
+
+export default (length/*: ?number*/)/*: string*/ => {
+  const randomHexStr = Math.random().toString(HEX).slice(SLICED).toUpperCase();
+  if (length) return randomHexStr.slice(-length);
+  return randomHexStr;
+};

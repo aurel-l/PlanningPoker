@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {PropTypes as T} from 'react';
 
 import s from './Card.css';
 
-export default ({children}) => (
+const Footer = ({children}) => (
   <div>
     <div className={s.cardInner}>
       {children || 'Empty card'}
     </div>
   </div>
 );
+Footer.propTypes = {
+  children: T.node,
+};
+
+export default Footer;

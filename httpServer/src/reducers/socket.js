@@ -1,3 +1,4 @@
+/* @flow */
 /* eslint complexity: [2, 5] */
 import {
   SOCKET_CONNECTION_START, SOCKET_CONNECTION_SUCCESS,
@@ -6,11 +7,11 @@ import {
 
 import {defaultSocket} from '../utils/defaults';
 
-export default (state = {
+export default (state/*: SocketState */ = {
   url: defaultSocket(),
   connection: null,
   status: 'disconnected',
-}, action) => {
+}, action/*: Action*/)/*: SocketState */ => {
   switch (action.type) {
     case SOCKET_CONNECTION_START:
       return {...state, connection: action.payload, status: 'connecting'};

@@ -1,8 +1,10 @@
 /* eslint-env node */
+/* eslint no-process-env: 0 */
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const cssnext = require('postcss-cssnext');
+const validateWebpackConfig = require('webpack-validator');
 
 const pkg = require('./package.json');
 
@@ -20,7 +22,7 @@ const cssSettings = {
 
 const production = process.env.NODE_ENV === 'production';
 
-module.exports = {
+const config = {
   entry: {
     js: pathBuilder(['src', 'index.js']),
   },
@@ -55,3 +57,5 @@ module.exports = {
   },
   postcss: [cssnext],
 };
+
+module.exports = validateWebpackConfig(config);

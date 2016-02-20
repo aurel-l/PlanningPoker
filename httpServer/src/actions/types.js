@@ -1,3 +1,4 @@
+/* @flow */
 const createSymbol = DEV ? label => String(label) : label => Symbol(label);
 
 // Action types

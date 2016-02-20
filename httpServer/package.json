@@ -2,8 +2,11 @@
   "name": "planning-poker-http-server",
   "version": "0.0.5",
   "scripts": {
-    "lint": "eslint --ignore-path ../.gitignore '**/*.js'",
-    "test": "echo \"Warning: no test specified, passing\" && exit 0",
+    "test": "npm-run-all test:*",
+    "test:lint": "eslint --ignore-path ../.gitignore '**/*.js'",
+    "test:flow": "flow check",
+    "test:unit": "echo \"Warning, no unit test specified yet, passing\" && exit 0",
+    "test:functional": "echo \"Warning, no functional test specified yet, passing\" && exit 0",
     "bundle": "webpack --progress",
     "cleanup": "rimraf dist && mkdirp dist",
     "predeploy": "npm-run-all lint test cleanup",
@@ -32,16 +35,18 @@
     "babel-preset-stage-0": "^6.5.0",
     "cpx": "^1.2.1",
     "css-loader": "^0.23.1",
-    "eslint": "^2.1.0",
+    "eslint": "^2.2.0",
     "eslint-config-airbnb": "^5.0.1",
     "eslint-plugin-import": "^1.0.0-beta.0",
-    "eslint-plugin-react": "^3.16.1",
+    "eslint-plugin-react": "^4.0.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "flow-bin": "^0.21.0",
     "npm-run-all": "^1.5.1",
     "postcss-cssnext": "^2.4.0",
     "postcss-loader": "^0.8.1",
     "style-loader": "^0.13.0",
     "webpack": "^2.0.7-beta",
-    "webpack-dev-server": "^2.0.0-beta"
+    "webpack-dev-server": "^2.0.0-beta",
+    "webpack-validator": "^1.0.0-beta.4"
   }
 }
