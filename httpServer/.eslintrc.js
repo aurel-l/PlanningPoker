@@ -89,7 +89,7 @@ const rules = {
   // Specify the maximum depth callbacks can be nested
   'max-nested-callbacks': [2, 2],
   // Limits number of parameters that can be used in the function declaration
-  'max-params': [2, 3],
+  'max-params': [2, 4],
   // Specify the maximum number of statement allowed in a function
   'max-statements': [2, 10],
   // Require a capital letter for constructors
@@ -254,6 +254,8 @@ const rules = {
   'no-trailing-spaces': 2,
   // Disallow use of undeclared variables unless set as global
   'no-undef': 2,
+  // Disallow use of 'undefined' variable
+  'no-undefined': 2,
   // Avoid code that looks like two expressions but is actually one
   'no-unexpected-multiline': 2,
   // Disallow unmodified conditions of loops
@@ -385,7 +387,7 @@ const rules = {
   // Require spaces before/after unary operators
   'space-unary-ops': 2,
   // Require a space immediately following the // or /* in a comment
-  'spaced-comment': [1, 'always', {'markers': [':'], 'exceptions': ['-']}],
+  'spaced-comment': [1, 'always', {'markers': [':', '::'], 'exceptions': ['-']}],
   // Disallow usage of spacing in template strings
   'template-curly-spacing': [2, 'never'],
   // Disallow comparisons with the value NaN

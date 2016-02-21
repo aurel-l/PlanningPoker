@@ -1,5 +1,6 @@
+/* @flow */
 import React, {PropTypes as T} from 'react';
-import {Link} from 'react-router';
+import Link from '../router/Link';
 
 import s from './Header.css';
 
@@ -14,7 +15,7 @@ RoomInfo.propTypes = {
   room: T.string,
 };
 
-const Header = ({username, room}) => (
+const Header = ({username, room}/*: {username: string, room: ?string}*/) => (
   <header className={s.header}>
     <Link to="/" className={s.title}>
       <p>Planning poker</p>

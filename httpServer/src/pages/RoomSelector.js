@@ -1,5 +1,6 @@
+/* @flow */
 import React, {Component} from 'react';
-import {Link} from 'react-router';
+import Link from '../router/Link';
 
 import randomId from '../utils/randomId';
 
@@ -7,19 +8,20 @@ import s from './RoomSelector.css';
 
 const generateRandomRoom = () => ({id: randomId()});
 
-export default class RoomSelector extends Component {
+class RoomSelector extends Component {
+  /*:: state: Object;*/
   constructor() {
     super();
     this.state = {id: null};
   }
 
-  handleClick = () => {
+  handleClick/*: function*/ = () => {
     this.setState(generateRandomRoom());
-  }
+  };
 
-  handleChange = ({target: {value}}) => {
+  handleChange/*: function*/ = ({target: {value}}) => {
     this.setState({id: value});
-  }
+  };
 
   render() {
     const {id} = this.state;
@@ -38,3 +40,5 @@ export default class RoomSelector extends Component {
     );
   }
 }
+
+export default RoomSelector;

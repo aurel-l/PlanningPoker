@@ -1,6 +1,8 @@
 [ignore]
 .*/dist/.*
-.*/node_modules/.*
+.*/node_modules/fbjs.*
+.*/node_modules/babel.*
+.*/node_modules/.*json
 
 [include]
 
@@ -8,3 +10,7 @@
 interfaces/
 
 [options]
+module.name_mapper='\(.*\).css$' -> 'empty/object'
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+munge_underscores=true

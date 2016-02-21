@@ -10,7 +10,7 @@ export default (state/*: UserState*/ = {
 }, action/*: Action*/)/*: UserState*/ => {
   switch (action.type) {
     case UPDATE_USERNAME:
-      localStorageManager.enqueue('username', action.payload);
+      localStorageManager.enqueue('username', action.payload || '');
       return {...state, name: action.payload};
     default:
       return state;

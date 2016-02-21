@@ -5,6 +5,8 @@ import * as types from './types';
 const actionCreator = (type, payload) => ({type, payload});
 
 // Action creators
+export const init = ()/*: Action*/ => actionCreator(types.INIT);
+
 export const updateUsername = (username/*: string */)/*: Action*/ => (
   actionCreator(types.UPDATE_USERNAME, username)
 );
@@ -31,4 +33,8 @@ export const updateSocketConnectionUrl = (url/*: string*/)/*: Action*/ => (
 
 export const enterRoom = (roomId/*: string*/)/*: Action*/ => (
   actionCreator(types.ENTER_ROOM, roomId)
+);
+
+export const navigate = (url/*: string*/)/*: Action*/ => (
+  actionCreator(types.NAVIGATE, url)
 );

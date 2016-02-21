@@ -1,3 +1,4 @@
+/* @flow */
 import React, {PropTypes as T} from 'react';
 
 import s from './Footer.css';
@@ -8,7 +9,7 @@ const colorLookup = {
   disconnected: 'red',
 };
 
-const Footer = ({status, url}) => (
+const Footer = ({status, url}/*: {status: string, url: string}*/) => (
   <footer
     style={{background: colorLookup[status] || 'grey'}}
     className={s.footer}

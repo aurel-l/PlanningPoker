@@ -1,23 +1,25 @@
+/* @flow */
 import React, {Component, PropTypes as T} from 'react';
+
+import connect from '../higherOrder/connect';
 
 import {enterRoom} from '../actions/creators';
 
 import s from './Room.css';
 
-export default class Room extends Component {
+class Room extends Component {
   static propTypes = {
     dispatch: T.func,
-    params: T.shape({
-      roomId: T.string.isRequired,
-    }).isRequired,
-  }
+    id: T.string.isRequired,
+  };
 
   componentDidMount() {
+    console.log('room mounted');
     this.props.dispatch(enterRoom(this.props.params.roomId));
   }
 
   render() {
-    const {roomId: id} = this.props.params;
+    const {id} = this.props;
     return (
       <section className={s.room}>
         Room {id}
@@ -25,3 +27,7 @@ export default class Room extends Component {
     );
   }
 }
+
+const selector = ({room: {id}}) => ({id});
+
+export default connect(Room, selector);

@@ -20,5 +20,15 @@ export const defaultUsername = ()/*: string*/ => (
 );
 
 export const defaultUserId = ()/*: string*/ => (
-  defaultGetter('userId', randomId(smallIDSize))
+  defaultGetter('userId', randomId())
 );
+
+const ROOT_HASH = '/';
+const INDEX_START_VARIABLE_HASH = 1;
+export const defaultHash = ()/*: string*/ => {
+  const hash = window.location.hash
+    .split('?')[0].substr(INDEX_START_VARIABLE_HASH);
+  if (hash) return hash;
+  window.location.hash = ROOT_HASH;
+  return ROOT_HASH;
+};

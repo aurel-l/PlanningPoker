@@ -1,7 +1,6 @@
+/* @flow */
 import React from 'react';
-import {Link} from 'react-router';
-
-import randomId from '../utils/randomId';
+import Link from '../router/Link';
 
 import s from './Home.css';
 
@@ -13,11 +12,7 @@ const Home = () => (
     <Link to="/room" style={{background: '#e55'}} className={s.room}>
       <p>Join a specific room</p>
     </Link>
-    <Link
-      to={`/room/${randomId()}`}
-      style={{background: '#5fa'}}
-      className={s.random}
-    >
+    <Link to="/room/random" style={{background: '#5fa'}} className={s.random}>
       <p>Join a random room</p>
     </Link>
     <Link to="/settings" style={{background: '#0df'}} className={s.settings}>

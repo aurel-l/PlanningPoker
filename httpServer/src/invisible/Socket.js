@@ -1,10 +1,11 @@
+/* @flow */
 import {Component, PropTypes as T} from 'react';
 import io from 'socket.io-client';
 
 import {
   socketConnectionStart, socketConnectionSuccess,
   socketConnectionFail, socketConnectionMessage,
-} from './actions/creators';
+} from '../actions/creators';
 
 export default class Socket extends Component {
   static propTypes = {
@@ -13,14 +14,14 @@ export default class Socket extends Component {
       url: T.string.isRequired,
       connection: T.object,
     }).isRequired,
-  }
+  };
 
   // Lifecycle
   componentDidMount() {
     this.manageConnection();
   }
 
-  shouldComponentUpdate(nextProps) {
+  shouldComponentUpdate(nextProps/*: {socket: {url: string}}*/)/*: boolean*/ {
     return this.props.socket.url !== nextProps.socket.url;
   }
 
@@ -33,7 +34,7 @@ export default class Socket extends Component {
   }
 
   // Custom
-  manageConnection = () => {
+  manageConnection/*: function*/ = () => {
     const {dispatch, socket} = this.props;
     if (socket.connection) {
       socket.connection.disconnect();
@@ -58,9 +59,9 @@ export default class Socket extends Component {
       socketConnectionFail();
     });
     dispatch(socketConnectionStart(socketIOConnection));
-  }
+  };
 
-  render() {
+  render()/*: null*/ {
     return null;
   }
 }

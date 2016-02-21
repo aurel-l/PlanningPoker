@@ -1,40 +1,50 @@
-import React, {Component, PropTypes as T, cloneElement} from 'react';
+/* @flow */
+import React, {Component, PropTypes as T, createElement} from 'react';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Socket from './Socket';
+import Socket from './invisible/Socket';
+
+import getPageForRoute from './router/router';
+
+import rootReducer from './reducers/root';
+import {init} from './actions/creators';
 
 import s from './App.css';
 
-import rootReducer from './reducers/root';
-
 export default class App extends Component {
-  static propTypes = {
-    children: T.node.isRequired,
-  }
+  /*:: state: Object;*/
+  static childContextTypes = {
+    dispatch: T.func.isRequired,
+    state: T.object.isRequired,
+  };
 
   constructor() {
     super();
-    this.state = rootReducer(undefined, {});
+    // Set the initial App state
+    this.state = rootReducer({}, init());
+  }
+
+  getChildContext()/*: Context*/ {
+    return {
+      dispatch: this.dispatch,
+      state: this.state,
+    };
   }
 
   // Custom
-  dispatch = action => {
+  dispatch/*: function*/ = action => {
     this.setState(rootReducer(this.state, action));
-  }
+  };
 
   // Render
   render() {
-    const {user, room, socket} = this.state;
+    console.log('rendering app');
+    const {user, socket, navigation} = this.state;
     return (
       <div className={s.app}>
         <Header username={user.name} />
-        <main>
-          {cloneElement(
-            this.props.children,
-            {user, room, socket, dispatch: this.dispatch}
-          )}
-        </main>
+        {createElement(getPageForRoute(navigation.levels))}
         <Footer status={socket.status} url={socket.url} />
         <Socket dispatch={this.dispatch} socket={socket} />
       </div>

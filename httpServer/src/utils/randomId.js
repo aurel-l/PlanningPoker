@@ -1,10 +1,11 @@
 /* @flow */
-const HEX = 16;
+// Radix to transform float to string
+const RADIX = 36;
 // Length to remove at the beginning
-const SLICED = 2;
+const SKIP = 2;
+// Default length for ID
+const DEFAULT = 12;
 
-export default (length/*: ?number*/)/*: string*/ => {
-  const randomHexStr = Math.random().toString(HEX).slice(SLICED).toUpperCase();
-  if (length) return randomHexStr.slice(-length);
-  return randomHexStr;
-};
+export default (length/*: number*/ = DEFAULT)/*: string*/ => (
+  Math.random().toString(RADIX).toUpperCase().substr(SKIP, length)
+);
