@@ -2,7 +2,7 @@
 import React from 'react';
 
 export default () => (
-  <section>
+  <main>
     Room Index... Nothing to see here...
-  </section>
+  </main>
 );

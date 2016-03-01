@@ -5,7 +5,7 @@ import socket from './socket';
 import navigation from './navigation';
 
 export default (
-  state/*: RootState*/, action/*: Action*/
+  state/*: RootState*/ = {}, action/*: Action*/
 )/*: RootState*/ => ({
   user: user(state.user, action),
   room: room(state.room, action),

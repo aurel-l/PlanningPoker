@@ -1,7 +1,6 @@
 /* @flow */
 import React, {Component, PropTypes as T} from 'react';
-
-import connect from '../higherOrder/connect';
+import {connect} from 'react-redux';
 
 import {enterRoom} from '../actions/creators';
 
@@ -21,13 +20,13 @@ class Room extends Component {
   render() {
     const {id} = this.props;
     return (
-      <section className={s.room}>
+      <main className={s.room}>
         Room {id}
-      </section>
+      </main>
     );
   }
 }
 
 const selector = ({room: {id}}) => ({id});
 
-export default connect(Room, selector);
+export default connect(selector)(Room);

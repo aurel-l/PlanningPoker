@@ -33,7 +33,6 @@ p {
 
   @nest & > main {
     grid-area: main;
-    display: flex;
     align-items: stretch;
     justify-content: space-around;
     padding: 5%;

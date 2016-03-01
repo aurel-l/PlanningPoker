@@ -5,7 +5,7 @@ import Link from '../router/Link';
 import s from './Home.css';
 
 const Home = () => (
-  <div className={s.home} data-page="home">
+  <main className={s.home} data-page="home">
     <Link to="/user" style={{background: '#adf'}} className={s.user}>
       <p>User information</p>
     </Link>
@@ -18,7 +18,7 @@ const Home = () => (
     <Link to="/settings" style={{background: '#0df'}} className={s.settings}>
       <p>Settings</p>
     </Link>
-  </div>
+  </main>
 );
 
 export default Home;

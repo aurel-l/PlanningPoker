@@ -26,7 +26,7 @@ class RoomSelector extends Component {
   render() {
     const {id} = this.state;
     return (
-      <form className={s.form}>
+      <main className={s.form}>
         <label>
           Room name:&nbsp;
           <input
@@ -36,7 +36,7 @@ class RoomSelector extends Component {
         </label>
         <button onClick={this.handleClick}>Create a random room</button>
         {id ? <Link to={`/room/${id}`}>Go to room {id}</Link> : null}
-      </form>
+      </main>
     );
   }
 }

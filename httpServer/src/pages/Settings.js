@@ -1,7 +1,6 @@
 /* @flow */
 import React, {Component, PropTypes as T} from 'react';
-
-import connect from '../higherOrder/connect';
+import {connect} from 'react-redux';
 
 import {updateSocketConnectionUrl} from '../actions/creators';
 
@@ -20,7 +19,7 @@ class Settings extends Component {
   render() {
     const {url} = this.props;
     return (
-      <form className={s.form}>
+      <main className={s.form}>
         <label>
           Socket URL:&nbsp;
           <input
@@ -32,11 +31,11 @@ class Settings extends Component {
             spellCheck={false}
           />
         </label>
-      </form>
+      </main>
     );
   }
 }
 
 const selector = ({socket: {url}}) => ({url});
 
-export default connect(Settings, selector);
+export default connect(selector)(Settings);

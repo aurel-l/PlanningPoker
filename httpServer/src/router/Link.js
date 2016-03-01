@@ -1,7 +1,7 @@
 /* @flow */
 import React, {Component, PropTypes as T} from 'react';
 
-import connect from '../higherOrder/connect';
+import {connect} from 'react-redux';
 import {navigate} from '../actions/creators';
 
 class Link extends Component {
@@ -29,4 +29,4 @@ class Link extends Component {
   }
 }
 
-export default connect(Link);
+export default connect()(Link);

@@ -1,7 +1,6 @@
 /* @flow */
 import React, {Component, PropTypes as T} from 'react';
-
-import connect from '../higherOrder/connect';
+import {connect} from 'react-redux';
 
 import {updateUsername} from '../actions/creators';
 
@@ -21,7 +20,7 @@ class User extends Component {
   render() {
     const {name, id} = this.props;
     return (
-      <form className={s.form}>
+      <main className={s.form}>
         <label>
           User:&nbsp;
           <input value={name} onChange={this.handleChange} />
@@ -30,11 +29,11 @@ class User extends Component {
           ID:&nbsp;
           <input disabled value={id} />
         </label>
-      </form>
+      </main>
     );
   }
 }
 
 const selector = ({user: {name, id}}) => ({name, id});
 
-export default connect(User, selector);
+export default connect(selector)(User);
